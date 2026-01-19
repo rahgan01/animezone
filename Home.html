@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AnimeZone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/Home.css" />
+    <link rel="icon" type="image/png" href="/public/img/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/public/img/favicon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/public/img/favicon.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/img/favicon.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="background">
+      <header>
+        <div class="logo">
+          <a style="font-family: myFont" href="Home.html">AnimeZone</a>
+        </div>
+        <nav>        
+          <a href="#" id="openMyList">My List</a>
+        </nav>
+        <div class="genres-wrap">
+            <a href="#" id="genresBtn">Genres ▾</a>
+
+            <div class="genres-dropdown" id="genresDropdown" hidden>
+              <div class="genres-dropdown-header">Genres</div>
+              <div class="genres-list" id="genresList">
+                <div class="genres-loading">Loading...</div>
+              </div>
+            </div>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search anime..."
+            aria-label="Search anime"
+          />
+          <span class="search-icon">⌕</span>
+        </div>
+        <div
+          class="search-results"
+          id="search-results"
+          aria-live="polite"
+          hidden
+        ></div>
+        <div class="profile" id="openAuthBtn">
+          <img id="profileAvatar" src="" alt="Profile" class="profile-avatar" />
+          <span class="profile-name" id="profile_name">Sign in</span>
+        </div>
+        <button class="search-btn">⌕</button>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </header>
+
+      <section class="hero-carousel">
+        <div class="slides">
+          <div class="slide active">
+            <img class="hero-bg-blur" alt="Picture could not render" />
+            <img class="hero-bg" alt="Picture could not render" />
+            <div class="hero-content">
+              <div class="badge">Now Popular</div>
+              <h1>Demon Slayer: Kimetsu no Yaiba</h1>
+              <p>An epic battle against demons.</p>
+              <div class="buttons">
+                <button class="save hero-like-btn">‪‪❤︎‬ Add to My List</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img class="hero-bg-blur" alt="Picture could not render" />
+            <img class="hero-bg" alt="Picture could not render" />
+            <div class="hero-content">
+              <div class="badge">Trending</div>
+              <h1>Shingeki no kyojin</h1>
+              <p>Humanity’s final stand.</p>
+              <div class="buttons">
+                <button class="save hero-like-btn">‪‪❤︎‬ Add to My List</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img class="hero-bg-blur" alt="Picture could not render" />
+            <img class="hero-bg" alt="Picture could not render" />
+            <div class="hero-content">
+              <div class="badge">Fan Favorite</div>
+              <h1>Jujutsu Kaisen</h1>
+              <p>Curses, sorcerers, and chaos.</p>
+              <div class="buttons">
+                <button class="save hero-like-btn">‪‪❤︎‬ Add to My List</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="carousel-controls">
+          <button class="carousel-arrow left" aria-label="Previous slide">
+            ❮
+          </button>
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <button class="carousel-arrow right" aria-label="Next slide">
+            ❯
+          </button>
+        </div>
+      </section>
+
+      <section class="genre-section" id="genreSection" hidden>
+        <div class="genre-section-head">
+          <h2 id="genreTitle">Genre</h2>
+          <button class="genre-close" id="genreCloseBtn" type="button">
+            ✕
+          </button>
+        </div>
+
+        <div class="genre-grid" id="genreGrid"></div>
+      </section>
+
+      <section class="popular-section">
+        <h2>Popular Animes</h2>
+        <div class="grid">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>Attack on Titan<span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>Jujutsu Kaisen <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="popular-section">
+        <h2>Trending This Week</h2>
+        <div class="grid">
+          <!-- Anime cards -->
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>Attack on Titan <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>Jujutsu Kaisen <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>Attack on Titan <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>Jujutsu Kaisen <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="popular-section">
+        <h2>Top rated</h2>
+        <div class="grid">
+          <!-- Anime cards -->
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>Attack on Titan <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>Jujutsu Kaisen <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x450" />
+            <div class="info">
+              <h3>One Piece <span class="heart">‪‪❤︎‬</span></h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer><i>Rahul Gandhi</i> © 2026 AnimeZone</footer>
+    </div>
+
+    <div class="auth-overlay" id="authOverlay" aria-hidden="true">
+      <div
+        class="auth-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="authTitle"
+      >
+        <button class="auth-close" id="authClose" aria-label="Close">✕</button>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="loginTab" type="button">
+            Login
+          </button>
+          <button class="auth-tab" id="registerTab" type="button">
+            Register
+          </button>
+        </div>
+
+        <!-- LOGIN -->
+        <form action="/login" class="auth-form" id="loginForm" method="POST">
+          <h2 class="auth-title" id="authTitle">Welcome back</h2>
+
+          <label class="auth-label">Email</label>
+          <input
+            name="email"
+            class="auth-input"
+            type="email"
+            id="loginEmail"
+            placeholder="you@example.com"
+            required
+          />
+
+          <label class="auth-label">Password</label>
+          <input
+            name="password"
+            class="auth-input"
+            type="password"
+            id="loginPassword"
+            placeholder="••••••••"
+            required
+          />
+
+          <button class="auth-submit" type="submit">Login</button>
+        </form>
+
+        <!-- REGISTER -->
+        <form
+          action="/register"
+          class="auth-form hidden"
+          id="registerForm"
+          method="POST"
+        >
+          <h2 class="auth-title">Create account</h2>
+
+          <label class="auth-label">Username</label>
+          <input
+            name="username"
+            class="auth-input"
+            type="text"
+            id="regUsername"
+            placeholder="Alex"
+            required
+          />
+
+          <label class="auth-label">Email</label>
+          <input
+            name="email"
+            class="auth-input"
+            type="email"
+            id="regEmail"
+            placeholder="you@example.com"
+            required
+          />
+
+          <label class="auth-label">Password</label>
+          <input
+            name="password"
+            class="auth-input"
+            type="password"
+            id="regPassword"
+            placeholder="••••••••"
+            required
+          />
+
+          <label class="auth-label">Confirm password</label>
+          <input
+            class="auth-input"
+            type="password"
+            id="regPassword2"
+            placeholder="••••••••"
+            required
+          />
+
+          <button class="auth-submit" type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="mylist-overlay" id="myListOverlay">
+      <div class="mylist-modal">
+        <div class="mylist-header">
+          <h2>My List</h2>
+          <button id="myListClose" aria-label="Close">✕</button>
+        </div>
+
+        <div class="mylist-head">
+          <div>#</div>
+          <div>Image</div>
+          <div>Anime Title</div>
+        </div>
+
+        <div id="myListTable"></div>
+      </div>
+    </div>
+
+    <div class="msg-overlay" id="msgOverlay" aria-hidden="true">
+      <div
+        class="msg-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="msgTitle"
+      >
+        <div class="msg-header">
+          <h3 id="msgTitle">Message</h3>
+        </div>
+
+        <p class="msg-text" id="msgText">Message here...</p>
+
+        <div class="msg-actions">
+          <button class="msg-btn secondary" id="msgOkBtn">OK</button>
+          <button class="msg-btn primary" id="msgLoginBtn">Login</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/public/js/script.js"></script>
+  </body>
+</html>
