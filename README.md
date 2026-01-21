@@ -16,13 +16,3 @@ Built with **Node.js, Express, MongoDB Atlas, and Vanilla JavaScript**.
 ✅ MongoDB Atlas Cloud database  
 ✅ Local caching for API calls (faster + safer)  
 ✅ Clean UI with responsive design  
-
----
-
-## 📸 Screenshots
-
-> Add screenshots here later (recommended for portfolio)
-
-Example:
-
-```md
