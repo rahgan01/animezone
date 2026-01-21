@@ -418,8 +418,11 @@ loginForm?.addEventListener("submit", async (e) => {
   if (!res.ok) return openMessage(data.message || "Login failed", { showLogin: false });
 
   setLoggedIn({ username: data.username, email });
-  await markLikedHearts();
   closeAuth();
+
+  markLikedHearts().catch((err) => {
+    console.error("markLikedHearts failed:", err);
+  })
 });
 
 registerForm?.addEventListener("submit", async (e) => {

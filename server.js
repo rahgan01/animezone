@@ -6,8 +6,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
+const MongoStore = require('connect-mongo').default;
 
 const app = express();
+app.set("trust proxy", 1);
 
 app.use(express.json());
 app.use(
@@ -15,9 +17,14 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      collectionName: "sessions",
+    }),
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7,
       sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
     },
   }),
 );
@@ -69,7 +76,7 @@ favoriteSchema.index({ userId: 1, malId: 1 }, { unique: true });
 const Favorite = mongoose.model("Favorite", favoriteSchema);
 
 function requireLogin(req, res, next) {
-  if (!req.session.user) return res.status(401);
+  if (!req.session.user) return res.status(401).json({ ok: false, message: "Not logged in" });
   next();
 }
 
